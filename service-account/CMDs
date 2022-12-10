@@ -1,0 +1,66 @@
+# List sa
+kubectl get sa
+
+# List secrets
+kubectl get secret
+
+# Create sa
+kubectl create testsa
+
+# List secrets
+kubectl get secret
+
+# Deploy the pod
+kubectl apply -f pod-sa.yml
+
+# Describe pod
+kubectl describe pod test-pod
+
+# List services
+kubectl get service
+
+# Log into the bash of the pod
+kubectl exec -it test-pod -- bash
+
+# Check secrets
+ls -l /var/run/secrets/kubernetes.io/serviceaccount
+
+# Export vars
+TOKEN=`cat /var/run/secrets/kubernetes.io/serviceaccount/token`
+
+# Try kube api request
+curl https://kubernetes/api/v1/namespaces/default/pods -k --header "Authorization: Bearer $TOKEN"
+
+OUTPUT:
+{
+  "kind": "Status",
+  "apiVersion": "v1",
+  "metadata": {
+
+  },
+  "status": "Failure",
+  "message": "forbidden: User \"system:serviceaccount:default:newsa\" cannot get path \"/\"",
+  "reason": "Forbidden",
+  "details": {
+
+  },
+  "code": 403
+}
+
+# Create role
+kubectl apply -f role.yml
+
+# Create role binding
+kubectl apply -f roleBinding.yml
+
+
+# Log into the bash of the pod
+kubectl exec -it test-pod -- bash
+
+# Try kube api request
+echo "deb http://us.archive.ubuntu.com/ubuntu vivid main universe" >> /etc/apt/sources.list
+apt-get update
+apt-get install jq
+
+curl https://kubernetes/api/v1/namespaces/default/pods -k --header "Authorization: Bearer $TOKEN"  | jq '.items[].metadata.name'
+
