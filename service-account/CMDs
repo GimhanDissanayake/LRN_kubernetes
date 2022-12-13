@@ -7,6 +7,9 @@ kubectl get secret
 # Create sa
 kubectl create testsa
 
+# Create sa secret
+kubectl apply -f sa-secret.yml
+
 # List secrets
 kubectl get secret
 
