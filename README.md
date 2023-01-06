@@ -8,6 +8,7 @@ To set up kubernetes cluster with kubeadm and calico cni: https://projectcalico.
 2. [Metrics server](metric-server)
 3. [HPA](hpa)
 4. [Best Practices](best-practices)
+5. [StatefulSets](statefulsets)
 
 # COMMANDS
 
