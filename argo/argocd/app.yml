@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/marcel-dempers/docker-development-youtube-series.git
-    targetRevision: HEAD
+    repoURL: https://github.com/GimhanDissanayake/LRN_kubernetes.git
+    targetRevision: development
     path: argo/example-app
     directory:
       recurse: true
