@@ -266,7 +266,7 @@ Set the kubectl context to your staging cluster and bootstrap Flux:
 
 ```sh
 flux bootstrap github \
-    --context=staging \
+    --context=temp-aks-cluster \
     --owner=${GITHUB_USER} \
     --repository=${GITHUB_REPO} \
     --branch=development \
