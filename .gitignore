@@ -1,2 +1,6 @@
 # Mac os cache
 .DS_Store
+
+# Terraform
+.terraform*
+*terraform*
