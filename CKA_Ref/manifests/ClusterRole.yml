@@ -1,0 +1,23 @@
+---
+# Ex:1
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: node-admin
+rules:
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["get", "watch", "list", "create", "delete"]
+---
+# Ex:2
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: node-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - 'nodes'
+  verbs:
+  - '*'
